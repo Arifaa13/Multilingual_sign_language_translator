@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <title>Multilingual Sign Language Translator</title>
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+
+      #translator {
+        width: 600px;
+        border: 1px solid #ccc;
+        padding: 10px;
+      }
+
+      #sign-list {
+        width: 200px;
+        border: 1px solid #ccc;
+        padding: 10px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <h1>Multilingual Sign Language Translator</h1>
+    <div id="translator">
+      <p>Select a sign from the list to view the video.</p>
+      <div id="sign-list">
+        <select id="sign-language">
+          <option value="bengali">Bengali</option>
+          <option value="russian">Russian</option>
+          <option value="american">American</option>
+        </select>
+      </div>
+      <div id="video-container">
+        <video width="600" height="400" controls>
+          <source src="" id="video-source" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+    <script>
+      const signLanguageSelector = document.querySelector('#sign-language');
+      const videoSource = document.querySelector('#video-source');
+
+      signLanguageSelector.addEventListener('change', (e) => {
+        const selectedSignLanguage = e.target.value;
+        switch (selectedSignLanguage) {
+          case 'bengali':
+            videoSource.src = 'bengaliSignVideo.mp4';
+            break;
+          case 'russian':
+            videoSource.src = 'russianSignVideo.mp4';
+            break;
+          case 'american':
+            videoSource.src = 'americanSignVideo.mp4';
+            break;
+        }
+      });
+    </script>
+  </body>
+</html>
